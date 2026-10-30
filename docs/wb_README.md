@@ -504,6 +504,7 @@ flowchart LR
 | [wb_05_data_validation.md](docs/wb_05_data_validation.md) | 三层校验、人工核对工具、报告生成、验收标准 | P1 |
 | [wb_06_pilot_plan.md](docs/wb_06_pilot_plan.md) | 4周试点计划、Docker配置、设备清单 | **P0 执行** |
 | [wb_07_api_exploration.md](docs/wb_07_api_exploration.md) | API逆向探索、合规边界、效率提升 | P2 |
+| [wb_08_research_references.md](docs/wb_08_research_references.md) | 竞品调研、开源标准(MDS/GBFS)、技术栈验证 | P1 |
 
 ### 建议阅读顺序
 
@@ -520,8 +521,8 @@ flowchart LR
 
 ```bash
 # 1. 克隆项目
-git clone <repo-url> e-bike-monitor
-cd e-bike-monitor
+git clone https://github.com/jxjwilliam/ebike-monitor.git ebike-monitor
+cd ebike-monitor
 
 # 2. 启动基础设施
 docker-compose up -d postgres redis minio

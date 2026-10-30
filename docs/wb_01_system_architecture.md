@@ -248,7 +248,7 @@ M6(API) ←──对接──→ M7(前端) ←──展示──→ M5, M8 ←�
 ## 5. 项目目录结构
 
 ```
-e-bike-monitor/
+ebike-monitor/
 ├── docs/                          # 技术文档（本目录）
 │   ├── wb_00_project_overview.md
 │   ├── wb_01_system_architecture.md

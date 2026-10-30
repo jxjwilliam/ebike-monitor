@@ -72,8 +72,8 @@ Week 4: 试运行 + 优化
 
 ```bash
 # 1. 创建项目目录
-mkdir -p e-bike-monitor/{backend,frontend,scripts,models,datasets}
-cd e-bike-monitor
+mkdir -p ebike-monitor/{backend,frontend,scripts,models,datasets}
+cd ebike-monitor
 
 # 2. 初始化Git
 git init
