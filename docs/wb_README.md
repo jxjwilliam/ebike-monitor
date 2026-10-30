@@ -530,9 +530,9 @@ docker-compose up -d postgres redis minio
 docker-compose exec backend python scripts/init_db.py
 
 # 4. 导入点位数据
-# 以下为规划示例；容器运行时需将宿主机 ./access 只读挂载到 /data/access。
+# 以下为规划示例；容器运行时需将宿主机 ./assets 只读挂载到 /data/assets。
 docker-compose exec backend python scripts/load_points.py \
-    "/data/access/电单数车 线上测试点位 to 供应商.xlsx"
+    "/data/assets/电单数车 线上测试点位 to 供应商.xlsx"
 
 # 5. 启动全部服务
 docker-compose up -d

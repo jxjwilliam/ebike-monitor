@@ -34,5 +34,6 @@ visuals/
 
 ## 文件命名规则
 
-- `oc_` 前缀：由可视化引擎自动生成
-- `wb_` 前缀：项目文档关联的可视化
+- `oc_` 前缀：openAI codex 由可视化引擎自动生成
+- `wb_` 前缀：workbuddy AI 项目文档关联的可视化
+- `cc_` 前缀：claude code
