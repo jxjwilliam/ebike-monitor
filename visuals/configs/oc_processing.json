@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "电单车平台 · 异步处理与审核",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "column_fit": "spread",
+    "viewBox": [
+      1040,
+      560
+    ]
+  },
+  "participants": [
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "业务 API",
+      "sublabel": "鉴权与任务"
+    },
+    {
+      "id": "oss",
+      "type": "cloud",
+      "label": "OSS",
+      "sublabel": "原始证据"
+    },
+    {
+      "id": "db",
+      "type": "database",
+      "label": "业务库",
+      "sublabel": "事实与 Outbox"
+    },
+    {
+      "id": "worker",
+      "type": "backend",
+      "label": "处理链路",
+      "sublabel": "派发器 / 队列 / Worker"
+    },
+    {
+      "id": "review",
+      "type": "frontend",
+      "label": "复核端",
+      "sublabel": "修订与批准"
+    }
+  ],
+  "messages": [
+    {
+      "id": "step8",
+      "from": "db",
+      "to": "worker",
+      "label": "派发器读取 Outbox → 队列",
+      "variant": "dashed",
+      "y": 180
+    },
+    {
+      "id": "step9",
+      "from": "worker",
+      "to": "oss",
+      "label": "读取原件并执行质检",
+      "variant": "default",
+      "y": 228
+    },
+    {
+      "id": "step10",
+      "from": "worker",
+      "to": "db",
+      "label": "幂等写入分析建议与异常",
+      "variant": "emphasis",
+      "y": 276
+    },
+    {
+      "id": "step11",
+      "from": "review",
+      "to": "api",
+      "label": "查看证据与提交修订",
+      "variant": "default",
+      "y": 324
+    },
+    {
+      "id": "step12",
+      "from": "api",
+      "to": "db",
+      "label": "校验版本并保存修订",
+      "variant": "default",
+      "y": 372
+    },
+    {
+      "id": "step13",
+      "from": "review",
+      "to": "api",
+      "label": "独立审核人批准",
+      "variant": "security",
+      "y": 420
+    },
+    {
+      "id": "step14",
+      "from": "api",
+      "to": "db",
+      "label": "固定批准版本，允许生成交付",
+      "variant": "emphasis",
+      "y": 468
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "处理与审核边界",
+      "items": [
+        "Outbox 派发到队列，Worker 幂等写入建议",
+        "人工修订与独立批准后固定交付版本"
+      ]
+    }
+  ]
+}

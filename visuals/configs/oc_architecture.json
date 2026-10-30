@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "电单车平台 · 系统架构",
+    "locale": "zh-CN",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    {
+      "id": "console",
+      "type": "frontend",
+      "label": "管理与复核端",
+      "sublabel": "Vue 3 · 人员与权限",
+      "pos": [
+        40,
+        60
+      ],
+      "size": [
+        180,
+        76
+      ]
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "业务 API",
+      "sublabel": "FastAPI · 项目与任务",
+      "pos": [
+        440,
+        60
+      ],
+      "size": [
+        180,
+        76
+      ]
+    },
+    {
+      "id": "db",
+      "type": "database",
+      "label": "业务事实库",
+      "sublabel": "PostgreSQL / PostGIS",
+      "pos": [
+        840,
+        60
+      ],
+      "size": [
+        180,
+        76
+      ]
+    },
+    {
+      "id": "capture",
+      "type": "external",
+      "label": "现场采集端",
+      "sublabel": "人工截图 / 授权数据",
+      "pos": [
+        40,
+        230
+      ],
+      "size": [
+        180,
+        76
+      ]
+    },
+    {
+      "id": "outbox",
+      "type": "messagebus",
+      "label": "可靠任务派发",
+      "sublabel": "Outbox → RabbitMQ",
+      "pos": [
+        440,
+        230
+      ],
+      "size": [
+        180,
+        76
+      ]
+    },
+    {
+      "id": "oss",
+      "type": "cloud",
+      "label": "原始证据库",
+      "sublabel": "私有 OSS · 版本与摘要",
+      "pos": [
+        40,
+        400
+      ],
+      "size": [
+        180,
+        76
+      ]
+    },
+    {
+      "id": "worker",
+      "type": "backend",
+      "label": "异步识别处理",
+      "sublabel": "Celery / OpenCV / OCR",
+      "pos": [
+        440,
+        400
+      ],
+      "size": [
+        180,
+        76
+      ]
+    },
+    {
+      "id": "vision",
+      "type": "external",
+      "label": "视觉模型辅助",
+      "sublabel": "境内推理 · 可选",
+      "pos": [
+        840,
+        400
+      ],
+      "size": [
+        180,
+        76
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "console-api",
+      "from": "console",
+      "to": "api",
+      "label": "HTTPS"
+    },
+    {
+      "id": "api-db",
+      "from": "api",
+      "to": "db",
+      "label": "事务写入"
+    },
+    {
+      "id": "capture-api",
+      "from": "capture",
+      "to": "api",
+      "label": "任务绑定"
+    },
+    {
+      "id": "capture-oss",
+      "from": "capture",
+      "to": "oss",
+      "label": "临时授权直传",
+      "labelDy": 55
+    },
+    {
+      "id": "api-outbox",
+      "from": "api",
+      "to": "outbox",
+      "label": "事务提交后派发",
+      "labelDy": 55
+    },
+    {
+      "id": "outbox-worker",
+      "from": "outbox",
+      "to": "worker",
+      "label": "异步消费",
+      "labelDy": 55
+    },
+    {
+      "id": "worker-oss",
+      "from": "worker",
+      "to": "oss",
+      "label": "读取原件"
+    },
+    {
+      "id": "worker-vision",
+      "from": "worker",
+      "to": "vision",
+      "label": "按需推理"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "业务与证据分离",
+      "items": [
+        "数据库保存任务、结果、版本与审计",
+        "OSS 保存原件，模型建议经 API 进入复核"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "采集能力先验证",
+      "items": [
+        "地图服务不提供三品牌车辆库存",
+        "真实流量需要连续事件证据"
+      ]
+    }
+  ]
+}

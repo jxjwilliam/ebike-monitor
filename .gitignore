@@ -52,8 +52,11 @@ docker-compose.override.yml
 *.pth
 *.weights
 
-# Screenshots (runtime data)
-snapshots/
+# Visual check artifacts (temporary validation screenshots)
+visuals/screenshots/
+*.visual-check.*
+*.visual-check.html
+*.visual-check.json
 
 # Logs
 *.log

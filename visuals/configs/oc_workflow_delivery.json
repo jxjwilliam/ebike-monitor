@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "workflow",
+  "input": "/Users/william.jiang/Documents/WorkBuddy AI/1030/docs/oc_diagrams/oc_workflow.json",
+  "output": "/Users/william.jiang/Documents/WorkBuddy AI/1030/docs/oc_workflow.html",
+  "specification": {
+    "sha256": "77040ab8c983da5936123b06ece0745c0e4f082ed46621da13ffd800a75a5520",
+    "bytes": 3631
+  },
+  "artifact": {
+    "sha256": "6d607691eba889e701d9bd07eb20f8cfca52050655db3a71927bcc94b5017797",
+    "bytes": 713261
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

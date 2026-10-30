@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "电单车平台 · 证据上传时序",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "column_fit": "spread",
+    "viewBox": [
+      1040,
+      560
+    ]
+  },
+  "participants": [
+    {
+      "id": "client",
+      "type": "frontend",
+      "label": "采集端",
+      "sublabel": "H5 / Android"
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "业务 API",
+      "sublabel": "鉴权与任务"
+    },
+    {
+      "id": "oss",
+      "type": "cloud",
+      "label": "OSS",
+      "sublabel": "原始证据"
+    },
+    {
+      "id": "db",
+      "type": "database",
+      "label": "业务库",
+      "sublabel": "事实与 Outbox"
+    }
+  ],
+  "messages": [
+    {
+      "id": "step1",
+      "from": "client",
+      "to": "api",
+      "label": "申请 attempt 与上传授权",
+      "variant": "default",
+      "y": 180
+    },
+    {
+      "id": "step2",
+      "from": "api",
+      "to": "client",
+      "label": "返回受限上传凭证",
+      "variant": "return",
+      "y": 228
+    },
+    {
+      "id": "step3",
+      "from": "client",
+      "to": "oss",
+      "label": "直传原图",
+      "variant": "emphasis",
+      "y": 276
+    },
+    {
+      "id": "step4",
+      "from": "client",
+      "to": "api",
+      "label": "确认上传完成",
+      "variant": "default",
+      "y": 324
+    },
+    {
+      "id": "step5",
+      "from": "api",
+      "to": "oss",
+      "label": "校验对象与 SHA-256",
+      "variant": "default",
+      "y": 372
+    },
+    {
+      "id": "step6",
+      "from": "api",
+      "to": "db",
+      "label": "事务：证据 + Outbox",
+      "variant": "emphasis",
+      "y": 420
+    },
+    {
+      "id": "step7",
+      "from": "api",
+      "to": "client",
+      "label": "返回已接收",
+      "variant": "return",
+      "y": 468
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "一次采集尝试",
+      "items": [
+        "七轮三品牌分别执行，共 21 个槽位",
+        "上传时间与采集时间分别记录"
+      ]
+    }
+  ]
+}

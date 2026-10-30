@@ -1,0 +1,181 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "电单车平台 · 采集到交付",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "viewBox": [
+      840,
+      528
+    ]
+  },
+  "lanes": [
+    {
+      "id": "capture",
+      "label": "计划与采集"
+    },
+    {
+      "id": "process",
+      "label": "平台处理"
+    },
+    {
+      "id": "human",
+      "label": "审核与异常"
+    }
+  ],
+  "mainPath": [
+    "prepare",
+    "schedule",
+    "collect",
+    "upload",
+    "quality",
+    "analyze",
+    "verify",
+    "release"
+  ],
+  "nodes": [
+    {
+      "id": "prepare",
+      "lane": "capture",
+      "col": 0,
+      "type": "frontend",
+      "label": "确认点位",
+      "sublabel": "区域与指标口径"
+    },
+    {
+      "id": "schedule",
+      "lane": "capture",
+      "col": 1,
+      "type": "backend",
+      "label": "冻结排班",
+      "sublabel": "三品牌 · 七轮"
+    },
+    {
+      "id": "collect",
+      "lane": "capture",
+      "col": 2,
+      "type": "external",
+      "label": "现场采集",
+      "sublabel": "每十分钟一次"
+    },
+    {
+      "id": "upload",
+      "lane": "process",
+      "col": 2,
+      "type": "cloud",
+      "label": "证据入库",
+      "sublabel": "原图与摘要校验"
+    },
+    {
+      "id": "quality",
+      "lane": "process",
+      "col": 3,
+      "type": "security",
+      "label": "时空质检",
+      "sublabel": "时间 · 区域 · 遮挡"
+    },
+    {
+      "id": "analyze",
+      "lane": "process",
+      "col": 4,
+      "type": "backend",
+      "label": "辅助分析",
+      "sublabel": "计数与可观测变化"
+    },
+    {
+      "id": "verify",
+      "lane": "human",
+      "col": 4,
+      "type": "frontend",
+      "label": "人工核验",
+      "sublabel": "修订与独立批准"
+    },
+    {
+      "id": "release",
+      "lane": "human",
+      "col": 5,
+      "type": "database",
+      "label": "版本化交付",
+      "sublabel": "结果与证据清单"
+    },
+    {
+      "id": "issue",
+      "lane": "human",
+      "col": 3,
+      "type": "security",
+      "label": "异常登记",
+      "sublabel": "漏采不能事后补回"
+    }
+  ],
+  "edges": [
+    {
+      "id": "prepare-schedule",
+      "from": "prepare",
+      "to": "schedule",
+      "label": "冻结"
+    },
+    {
+      "id": "schedule-collect",
+      "from": "schedule",
+      "to": "collect",
+      "label": "派发"
+    },
+    {
+      "id": "collect-upload",
+      "from": "collect",
+      "to": "upload",
+      "label": "21 张原图"
+    },
+    {
+      "id": "upload-quality",
+      "from": "upload",
+      "to": "quality",
+      "label": "处理"
+    },
+    {
+      "id": "quality-analyze",
+      "from": "quality",
+      "to": "analyze",
+      "label": "可用"
+    },
+    {
+      "id": "analyze-verify",
+      "from": "analyze",
+      "to": "verify",
+      "label": "建议值"
+    },
+    {
+      "id": "verify-release",
+      "from": "verify",
+      "to": "release",
+      "label": "批准"
+    },
+    {
+      "id": "quality-issue",
+      "from": "quality",
+      "to": "issue",
+      "label": "不合格",
+      "role": "error",
+      "variant": "security"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "统一采集要求",
+      "items": [
+        "一小时 7 轮 × 3 品牌 = 21 个时点",
+        "三品牌同步，七轮区域保持一致"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "异常与能力边界",
+      "items": [
+        "异常证据单独复核；交付保留缺失原因",
+        "没有事件证据时，真实流量显示不可判定"
+      ]
+    }
+  ]
+}
