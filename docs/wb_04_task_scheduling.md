@@ -453,7 +453,7 @@ def import_points_from_excel(file_path):
     """
     从甲方提供的Excel导入点位数据
     
-    Excel格式（来自"电单数车 线上测试点位 to 供应商.xlsx"）：
+    Excel格式（来自"access/电单数车 线上测试点位 to 供应商.xlsx"）：
     序号 | 城市名称 | id | park_name | 围栏经纬度 | HB | DD
     """
     wb = openpyxl.load_workbook(file_path, data_only=True)

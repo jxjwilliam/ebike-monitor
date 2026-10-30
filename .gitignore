@@ -1,7 +1,5 @@
-# Source documents (contain sensitive client data)
-XMF 数据采购需求沟通 1023.pdf
-电单数车 线上测试点位 to 供应商.xlsx
-电单车间断截图示例及执行SOP.xlsx
+# Source resource files (contain sensitive client data, in assets/)
+assets/
 
 # WorkBuddy AI internal files
 .workbuddy-ai/

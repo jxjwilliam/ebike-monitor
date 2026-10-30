@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-30",
+  "note": "Path relocation only; original receipts retained unchanged. Interactive HTML and source hashes verified; browser rendering was not rerun.",
+  "diagrams": [
+    {
+      "diagram": "architecture",
+      "original_input": "/Users/william.jiang/Documents/WorkBuddy AI/1030/docs/oc_diagrams/oc_architecture.json",
+      "original_output": "/Users/william.jiang/Documents/WorkBuddy AI/1030/docs/oc_architecture.html",
+      "specification": {
+        "path": "visuals/configs/oc_architecture.json",
+        "sha256": "2ff247752a0fe6b3a292cb2b92f86bc3f563ce7343c8226dd549621188ddf377",
+        "matches_original_receipt": true
+      },
+      "artifact": {
+        "path": "visuals/html/oc_architecture.html",
+        "sha256": "84b03105cdcb2c3e1c84b5e89b585163b758e6463ab1e5453c26053f7a954186",
+        "matches_original_receipt": true
+      }
+    },
+    {
+      "diagram": "workflow",
+      "original_input": "/Users/william.jiang/Documents/WorkBuddy AI/1030/docs/oc_diagrams/oc_workflow.json",
+      "original_output": "/Users/william.jiang/Documents/WorkBuddy AI/1030/docs/oc_workflow.html",
+      "specification": {
+        "path": "visuals/configs/oc_workflow.json",
+        "sha256": "77040ab8c983da5936123b06ece0745c0e4f082ed46621da13ffd800a75a5520",
+        "matches_original_receipt": true
+      },
+      "artifact": {
+        "path": "visuals/html/oc_workflow.html",
+        "sha256": "6d607691eba889e701d9bd07eb20f8cfca52050655db3a71927bcc94b5017797",
+        "matches_original_receipt": true
+      }
+    },
+    {
+      "diagram": "sequence",
+      "original_input": "/Users/william.jiang/Documents/WorkBuddy AI/1030/docs/oc_diagrams/oc_sequence.json",
+      "original_output": "/Users/william.jiang/Documents/WorkBuddy AI/1030/docs/oc_sequence.html",
+      "specification": {
+        "path": "visuals/configs/oc_sequence.json",
+        "sha256": "76cfb6d6605fbb83df7574ad34ba9a73f0f1b323c15c48ce5cbc01ef156645f7",
+        "matches_original_receipt": true
+      },
+      "artifact": {
+        "path": "visuals/html/oc_sequence.html",
+        "sha256": "6479777cbbbbd9e6e59d8371d565fc99590aaba035f5dc8671f773c65992408c",
+        "matches_original_receipt": true
+      }
+    },
+    {
+      "diagram": "processing",
+      "original_input": "/Users/william.jiang/Documents/WorkBuddy AI/1030/docs/oc_diagrams/oc_processing.json",
+      "original_output": "/Users/william.jiang/Documents/WorkBuddy AI/1030/docs/oc_processing.html",
+      "specification": {
+        "path": "visuals/configs/oc_processing.json",
+        "sha256": "584501ff9627c0859c91dfcc6e27abbb5aadc0cb01718ea45bd0f73e5e3c7b7b",
+        "matches_original_receipt": true
+      },
+      "artifact": {
+        "path": "visuals/html/oc_processing.html",
+        "sha256": "a0cfae7c9c294a7c7ac3c53ccccedadf71a48f6480d3218e3e37ed168e43c911",
+        "matches_original_receipt": true
+      }
+    }
+  ]
+}
