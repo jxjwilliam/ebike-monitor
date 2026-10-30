@@ -1,0 +1,60 @@
+# Source documents (contain sensitive client data)
+XMF 数据采购需求沟通 1023.pdf
+电单数车 线上测试点位 to 供应商.xlsx
+电单车间断截图示例及执行SOP.xlsx
+
+# WorkBuddy AI internal files
+.workbuddy-ai/
+AGENTS.md
+CLAUDE.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Model weights (large files)
+*.onnx
+*.pt
+*.pth
+*.weights
+
+# Screenshots (runtime data)
+snapshots/
+
+# Logs
+*.log
+logs/
