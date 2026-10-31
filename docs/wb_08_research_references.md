@@ -158,6 +158,15 @@ MDS 字段:
 
 ### 4.2 GBFS (General Bikeshare Feed Specification)
 
+GBFS 就是 General Bikeshare Feed Specification，通用共享单车数据规范。
+
+简单说，它是共享单车行业约定的一套公开实时 JSON 格式，让任何 App、地图、研究者都能用同一种方式读到“现在哪有车”。它只管实时状态，不管历史订单。核心就一个入口加几张表：
+- gbfs.json：发现文件，列出这个系统提供了哪些接口，就像目录
+- system_information：系统名字、运营方、时区这些基本信息
+- station_information：有桩系统的站点位置、容量
+- station_status：每个站点现在剩几辆车、几个空位，要求尽量实时，最迟不超过 5 分钟
+- free_bike_status（v2）/ vehicle_status（v3）：无桩系统的每辆车经纬度、车型、是否被预约或故障
+
 - **来源**：[GitHub - MobilityData/gbfs](https://github.com/MobilityData/gbfs) / [NABSA/gbfs](https://github.com/NABSA/gbfs)
 - **维护方**：MobilityData
 - **定位**：共享单车的开放数据标准，Bird、Lime 等国际平台均支持，提供实时车辆位置、可用性、站点状态

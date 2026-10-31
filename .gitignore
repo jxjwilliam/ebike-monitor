@@ -59,3 +59,4 @@ visuals/screenshots/
 # Logs
 *.log
 logs/
+bikeshare-gbfs/output/
